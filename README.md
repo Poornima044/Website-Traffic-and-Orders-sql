@@ -9,6 +9,7 @@ The dataset includes website sessions, pageviews, and customer orders, and the g
 - **SQL Queries** → All queries are stored in this repository under `queries.sql`.
 - **Database** → MySQL (tested on MySQL 8.0).
 - **Data** → Provided in the Maven Fuzzy Factory case study (sessions, pageviews, orders tables).
+- **Tableau Dashboard** → `Ecommerce_Dashboard.png` (screenshot) and `Ecommerce_Dashboard.twbx` (interactive file).
 
 ---
 
@@ -40,42 +41,54 @@ The dataset includes website sessions, pageviews, and customer orders, and the g
 
 ---
 
+## 📈 Tableau Dashboard – E-commerce Sales & Profit Analysis (2012–2015)
+
+In addition to SQL analysis, I built a **Tableau dashboard** to visualize e-commerce performance.  
+
+### Dashboard Features:
+- **Monthly Profit Trends** → Profit fluctuations across months.  
+- **Top Products by Revenue** → Identifies best-selling products.  
+- **Yearly Revenue Growth (2012–2015)** → Revenue patterns over time.  
+- **Orders by Number of Items** → Customer purchasing behavior.  
+- **Interactive Filters** → Year and Product selection for deeper analysis.  
+
+### Key Insights:
+- Revenue peaked in **2014** before a decline in 2015.  
+- **Product 1** dominates revenue contribution.  
+- Most customers purchase **single-item orders**.  
+- December shows peak profits (seasonality effect).  
+
+📷 **Dashboard Preview**  
+![E-commerce Dashboard](Ecommerce_Dashboard.png)
+
+---
+
 ## 🛠️ Tools Used
-- **SQL (MySQL 8.0)** → Data exploration & analysis
-- **Excel / Tableau / Power BI (optional)** → Data visualization (not required but recommended)
+- **SQL (MySQL 8.0)** → Data exploration & analysis  
+- **Tableau** → Interactive dashboards & visual storytelling  
+- **Excel / Power BI (optional)** → Additional visualization  
 
 ---
 
 ## 🚀 Key Business Insights
-- Identified **best performing traffic sources** driving conversions.
-- Found **bottlenecks in the checkout funnel** (biggest drop-offs).
-- Validated **A/B tests** showing lift in conversion from new landing pages.
-- Provided **bid optimization insights** for paid search (mobile vs desktop).
-- Revealed **seasonal and weekly traffic patterns** useful for forecasting.
-
-### 🔑 Strategic Growth Insights
-- 📈 Growth in **organic traffic**, reducing reliance on paid ads.  
-- 🛒 Improved **conversion rates** after product page changes.  
-- 📦 Diversification of sales across multiple products, lowering risk.  
-- 📆 Evidence of **seasonality**, creating opportunities for campaign planning.  
+- Identified **best performing traffic sources** driving conversions.  
+- Found **bottlenecks in the checkout funnel** (biggest drop-offs).  
+- Validated **A/B tests** showing lift in conversion from new landing pages.  
+- Provided **bid optimization insights** for paid search (mobile vs desktop).  
+- Revealed **seasonal and weekly traffic patterns** useful for forecasting.  
 
 ---
 
 ## 📌 How to Use
-1. Clone this repository.
-2. Load the Maven Fuzzy Factory dataset into a MySQL database.
-3. Run the queries in `queries.sql` step by step.
-4. Use the results to build dashboards or reports.
-
----
-
-## 📷 Example Output (Optional)
-- Funnel drop-off visualization  
-- Sessions vs. Orders trend by traffic source  
-- Bounce rate comparison of landing pages  
+1. Clone this repository.  
+2. Load the Maven Fuzzy Factory dataset into a MySQL database.  
+3. Run the queries in `queries.sql` step by step.  
+4. Open `Ecommerce_Dashboard.twbx` in Tableau to explore the dashboard.  
+5. Use insights for building reports and presentations.  
 
 ---
 
 ## 👤 Author
 - **Poornima V**  
-- Aspiring Data Analyst | SQL | Data Visualization | Analytics  
+- Aspiring Data Analyst | SQL | Tableau | Power BI | Analytics  
+
