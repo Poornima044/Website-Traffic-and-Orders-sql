@@ -59,7 +59,8 @@ In addition to SQL analysis, I built a **Tableau dashboard** to visualize e-comm
 - December shows peak profits (seasonality effect).  
 
 📷 **Dashboard Preview**  
-![E-commerce Dashboard](https://github.com/USERNAME/REPO_NAME/blob/main/E-commerce%20Dashboard.png?raw=true](https://github.com/Poornima044/Website-Traffic-and-Orders-sql/blob/main/E-commerce%20Dashboard.png)
+![E-commerce Dashboard](https://raw.githubusercontent.com/Poornima044/Website-Traffic-and-Orders-sql/main/E-commerce%20Dashboard.png)
+
 
 ---
 
