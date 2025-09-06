@@ -71,6 +71,39 @@ In addition to SQL analysis, I built a **Tableau dashboard** to visualize e-comm
 
 ---
 
+## 🧩 Example SQL Query
+- Top traffic sources (sessions → orders conversion):
+SELECT 
+  ws.utm_source,
+  ws.utm_campaign,
+  COUNT(DISTINCT ws.website_session_id) AS sessions,
+  COUNT(DISTINCT o.order_id) AS orders,
+  ROUND(1.0 * COUNT(DISTINCT o.order_id) / NULLIF(COUNT(DISTINCT ws.website_session_id),0), 4) AS conversion_rate
+FROM website_sessions ws
+LEFT JOIN orders o ON ws.website_session_id = o.website_session_id
+GROUP BY ws.utm_source, ws.utm_campaign
+ORDER BY sessions DESC
+LIMIT 50;
+
+- Bounce rate for landing page /home (sessions with only 1 pageview):
+CREATE TEMPORARY TABLE first_pv AS
+SELECT website_session_id, MIN(website_pageview_id) AS first_pv
+FROM website_pageviews
+GROUP BY website_session_id;
+
+SELECT
+  COUNT(DISTINCT CASE WHEN wp.pageview_url = '/home' THEN f.website_session_id END) AS total_home_sessions,
+  COUNT(DISTINCT CASE WHEN wp.pageview_url = '/home' AND pv_counts.pageviews = 1 THEN f.website_session_id END) AS bounced_home_sessions,
+  ROUND(1.0 * COUNT(DISTINCT CASE WHEN wp.pageview_url = '/home' AND pv_counts.pageviews = 1 THEN f.website_session_id END) / NULLIF(COUNT(DISTINCT CASE WHEN wp.pageview_url = '/home' THEN f.website_session_id END),0), 4) AS bounce_rate
+FROM first_pv f
+JOIN website_pageviews wp ON f.first_pv = wp.website_pageview_id
+JOIN (
+  SELECT website_session_id, COUNT(*) as pageviews
+  FROM website_pageviews GROUP BY website_session_id
+) pv_counts ON pv_counts.website_session_id = f.website_session_id;
+
+---
+
 ## 🚀 Key Business Insights
 - Identified **best performing traffic sources** driving conversions.  
 - Found **bottlenecks in the checkout funnel** (biggest drop-offs).  
