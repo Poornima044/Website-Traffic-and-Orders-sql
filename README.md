@@ -73,6 +73,7 @@ In addition to SQL analysis, I built a **Tableau dashboard** to visualize e-comm
 
 ## 🧩 Example SQL Query
 - Top traffic sources (sessions → orders conversion):
+```sql
 SELECT 
   ws.utm_source,
   ws.utm_campaign,
@@ -84,8 +85,10 @@ LEFT JOIN orders o ON ws.website_session_id = o.website_session_id
 GROUP BY ws.utm_source, ws.utm_campaign
 ORDER BY sessions DESC
 LIMIT 50;
+```
 
 - Bounce rate for landing page /home (sessions with only 1 pageview):
+```sql
 CREATE TEMPORARY TABLE first_pv AS
 SELECT website_session_id, MIN(website_pageview_id) AS first_pv
 FROM website_pageviews
@@ -101,7 +104,7 @@ JOIN (
   SELECT website_session_id, COUNT(*) as pageviews
   FROM website_pageviews GROUP BY website_session_id
 ) pv_counts ON pv_counts.website_session_id = f.website_session_id;
-
+```
 ---
 
 ## 🚀 Key Business Insights
